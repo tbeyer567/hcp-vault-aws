@@ -1,4 +1,4 @@
-This repo deploys tep VPC's in AWS, split across two regions, and two HCP Vault clusters with associated HVN's with peering back to the afore mentioned VPC's.
+This repo deploys two VPC's in AWS, split across two regions, and two HCP Vault clusters with associated HVN's with peering back to the afore mentioned VPC's.
 
 To do:
   - Add inbound security group rules for SSH
