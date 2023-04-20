@@ -1,0 +1,5 @@
+# tf things
+.terraform
+.terraform.*
+*.tfstate
+*.tfstate.*
