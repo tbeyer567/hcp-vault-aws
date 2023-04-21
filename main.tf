@@ -29,6 +29,9 @@ module "hcp-peering-primary" {
   vpc_id     = module.primary_us_vpc.vpc_id
   hvn_cidr   = var.primary_hvn_cidr
 
+  route_table_id_public  = module.primary_us_vpc.public_route_table_ids[0]
+  route_table_id_private = module.primary_us_vpc.private_route_table_ids[0]
+
   security_group_id = module.primary_us_vpc.default_security_group_id
 }
 
@@ -46,6 +49,9 @@ module "hcp-peering-secondary" {
   route_id   = "us-east-1-hvn-route"
   vpc_id     = module.secondary_us_vpc.vpc_id
   hvn_cidr   = var.secondary_hvn_cidr
+
+  route_table_id_public  = module.secondary_us_vpc.public_route_table_ids[0]
+  route_table_id_private = module.secondary_us_vpc.private_route_table_ids[0]
 
   security_group_id = module.secondary_us_vpc.default_security_group_id
 }
