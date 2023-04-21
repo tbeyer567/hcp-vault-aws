@@ -18,13 +18,12 @@ resource "aws_vpc_peering_connection_accepter" "main" {
   auto_accept               = true
 }
 
-resource "aws_security_group_rule" "allow_ssh" {
-  type        = "ingress"
+resource "aws_vpc_security_group_ingress_rule" "allow_ssh" {
+  description = "Permit incoming SSH connections"
+  cidr_ipv4   = "0.0.0.0/0"
   from_port   = 22
   to_port     = 22
-  protocol    = "tcp"
-  cidr_blocks = var.ingress_ssh_cidr_blocks
-  description = "Allow SSH access in to VPC"
-  
+  ip_protocol = "tcp"
+
   security_group_id = var.security_group_id
 }
