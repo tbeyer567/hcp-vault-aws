@@ -17,3 +17,14 @@ resource "aws_vpc_peering_connection_accepter" "main" {
   vpc_peering_connection_id = hcp_aws_network_peering.main.provider_peering_id
   auto_accept               = true
 }
+
+resource "aws_security_group_rule" "allow_ssh" {
+  type        = "ingress"
+  from_port   = 22
+  to_port     = 22
+  protocol    = "tcp"
+  cidr_blocks = var.ingress_ssh_cidr_blocks
+  description = "Allow SSH access in to VPC"
+  
+  security_group_id = var.security_group_id
+}
