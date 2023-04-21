@@ -27,3 +27,11 @@ resource "aws_vpc_security_group_ingress_rule" "allow_ssh" {
 
   security_group_id = var.security_group_id
 }
+
+resource "aws_vpc_security_group_egress_rule" "allow_egress" {
+  description = "Permit egress traffic from VPC"
+  ip_protocol = "-1"
+  cidr_ipv4   = "0.0.0.0/0"
+
+  security_group_id = var.security_group_id
+}
