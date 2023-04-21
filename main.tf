@@ -27,6 +27,7 @@ module "hcp-peering-primary" {
   region     = "us-west-2"
   route_id   = "us-west-2-hvn-route"
   vpc_id     = module.primary_us_vpc.vpc_id
+  hvn_cidr   = var.primary_hvn_cidr
 
   security_group_id = module.primary_us_vpc.default_security_group_id
 }
@@ -44,6 +45,7 @@ module "hcp-peering-secondary" {
   region     = "us-east-1"
   route_id   = "us-east-1-hvn-route"
   vpc_id     = module.secondary_us_vpc.vpc_id
+  hvn_cidr   = var.secondary_hvn_cidr
 
   security_group_id = module.secondary_us_vpc.default_security_group_id
 }

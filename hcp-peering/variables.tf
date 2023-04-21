@@ -31,3 +31,8 @@ variable "ingress_ssh_cidr_blocks" {
   type        = list(string)
   default     = []
 }
+
+variable "hvn_cidr" {
+  description = "HVN CIDR block"
+  type        = string
+}

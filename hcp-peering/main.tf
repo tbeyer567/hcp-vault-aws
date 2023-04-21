@@ -35,3 +35,13 @@ resource "aws_vpc_security_group_egress_rule" "allow_egress" {
 
   security_group_id = var.security_group_id
 }
+
+resource "aws_vpc_security_group_egress_rule" "vault_api" {
+  description = "allow access to HCP Vault API"
+  ip_protocol = "tcp"
+  to_port     = 8200
+  from_port   = 8200
+  cidr_ipv4   = var.hvn_cidr
+
+  security_group_id = var.security_group_id
+}
