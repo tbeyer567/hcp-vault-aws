@@ -46,13 +46,3 @@ variable "route_table_id_private" {
   description = "VPC route table to be modified - private subnets"
   type        = string
 }
-
-#variable "destination_cidr_block" {
-#  description = "Destination CIDR to be routed to"
-#  type        = string
-#}
-
-#variable "vpc_peering_connection_id" {
-#  description = "Provider peering ID (route table target)"
-#  type        = string
-#}
