@@ -31,3 +31,28 @@ variable "ingress_ssh_cidr_blocks" {
   type        = list(string)
   default     = []
 }
+
+variable "hvn_cidr" {
+  description = "HVN CIDR block"
+  type        = string
+}
+
+variable "route_table_id_public" {
+  description = "VPC route table to be modified - public subnets"
+  type        = string
+}
+
+variable "route_table_id_private" {
+  description = "VPC route table to be modified - private subnets"
+  type        = string
+}
+
+#variable "destination_cidr_block" {
+#  description = "Destination CIDR to be routed to"
+#  type        = string
+#}
+
+#variable "vpc_peering_connection_id" {
+#  description = "Provider peering ID (route table target)"
+#  type        = string
+#}

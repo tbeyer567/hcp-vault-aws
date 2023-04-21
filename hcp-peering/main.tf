@@ -35,3 +35,25 @@ resource "aws_vpc_security_group_egress_rule" "allow_egress" {
 
   security_group_id = var.security_group_id
 }
+
+resource "aws_vpc_security_group_egress_rule" "vault_api" {
+  description = "allow access to HCP Vault API"
+  ip_protocol = "tcp"
+  to_port     = 8200
+  from_port   = 8200
+  cidr_ipv4   = var.hvn_cidr
+
+  security_group_id = var.security_group_id
+}
+
+resource "aws_route" "public" {
+  route_table_id            = var.route_table_id_public
+  destination_cidr_block    = data.hcp_hvn.main.cidr_block
+  vpc_peering_connection_id = hcp_aws_network_peering.main.provider_peering_id
+}
+
+resource "aws_route" "private" {
+  route_table_id            = var.route_table_id_private
+  destination_cidr_block    = data.hcp_hvn.main.cidr_block
+  vpc_peering_connection_id = hcp_aws_network_peering.main.provider_peering_id
+}
